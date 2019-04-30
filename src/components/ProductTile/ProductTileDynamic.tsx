@@ -1,48 +1,14 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { cnCreate } from '../../utils/cn';
 import './style/ProductTileDynamic.less';
 import ProductSwitcher from '../ProductSwitcher/ProductSwitcher';
-import { IServicePack, ISwitcher } from './ProductTile';
 import AnimationValue from './ProductTileValue';
-
-interface IProductTileDynamicProps {
-    /** Current pack */
-    currentPack: Partial<IServicePack>;
-    /** Switcher */
-    switcher: ISwitcher;
-    /** Start calls index */
-    startCallsIndex: number;
-    /** Start traffic index */
-    startTrafficIndex: number;
-    /** Change calls */
-    onChangeCalls(e: React.SyntheticEvent<EventTarget>, value: string): boolean;
-    /** Change Traffic */
-    onChangeTraffic(e: React.SyntheticEvent<EventTarget>, value: string): boolean;
-}
+import { IProductTileDynamic } from './types';
+import { productTileDynamicProps } from './propTypes';
 
 const cn = cnCreate('mfui-product-tile-dynamic');
-class ProductTileDynamic extends React.Component<IProductTileDynamicProps> {
-    static propTypes = {
-        currentPack: PropTypes.shape({
-            calls: PropTypes.shape({
-                value: PropTypes.number,
-                unit: PropTypes.string,
-            }),
-            traffic: PropTypes.shape({
-                value: PropTypes.number,
-                unit: PropTypes.string,
-            }),
-        }),
-        switcher: PropTypes.shape({
-            calls: PropTypes.arrayOf(PropTypes.string),
-            traffic: PropTypes.arrayOf(PropTypes.string),
-        }),
-        startCallsIndex: PropTypes.number,
-        startTrafficIndex: PropTypes.number,
-        onChangeCalls: PropTypes.func,
-        onChangeTraffic: PropTypes.func,
-    };
+class ProductTileDynamic extends React.Component<IProductTileDynamic> {
+    static propTypes = productTileDynamicProps;
 
     render() {
         const {

@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { cnCreate } from '../../utils/cn';
 import './style/ProductTileHint.less';
-
-interface IProductTileHintProps {
-    /** Title */
-    title: string;
-}
+import { IProductTileHint } from './types';
+import { productTileHintProps } from './propTypes';
 
 const cn = cnCreate('mfui-product-tile-hint');
-class ProductTileHint extends React.Component<IProductTileHintProps> {
+class ProductTileHint extends React.Component<IProductTileHint> {
+    static propTypes = productTileHintProps;
     render() {
         const { title } = this.props;
 

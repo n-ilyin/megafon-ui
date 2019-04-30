@@ -1,29 +1,14 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { cnCreate } from '../../utils/cn';
 import './style/ProductTileValue.less';
-
-interface IProductTileValueProps {
-    /** Value */
-    value: string;
-    /** hAlign */
-    hAlign?: 'center';
-}
-
-interface IProductTileValueState {
-    prevValue: string;
-    currentValue: string;
-    isAnimating: boolean;
-}
+import { IProductTileValue, IProductTileValueState } from './types';
+import { productTileValueProps } from './propTypes';
 
 const cn = cnCreate('mfui-product-tile-value');
-class ProductTileValue extends React.PureComponent<IProductTileValueProps, IProductTileValueState> {
-    static propTypes = {
-        value: PropTypes.string.isRequired,
-        hAlign: PropTypes.oneOf(['center']),
-    };
+class ProductTileValue extends React.PureComponent<IProductTileValue, IProductTileValueState> {
+    static propTypes = productTileValueProps;
 
-    constructor(props: IProductTileValueProps) {
+    constructor(props: IProductTileValue) {
         super(props);
 
         this.state = {
@@ -33,7 +18,7 @@ class ProductTileValue extends React.PureComponent<IProductTileValueProps, IProd
         };
     }
 
-    static getDerivedStateFromProps(props: IProductTileValueProps, state: IProductTileValueState) {
+    static getDerivedStateFromProps(props: IProductTileValue, state: IProductTileValueState) {
         const isChangedValue = props.value !== state.currentValue;
 
         return {

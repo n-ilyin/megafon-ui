@@ -1,33 +1,13 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { cnCreate } from '../../utils/cn';
 import './style/ProductTileOptions.less';
 import BubbleHint from '../BubbleHint/BubbleHint';
-import { IOption } from './ProductTile';
-
-interface IProductTileOptionsProps {
-    /** Has head */
-    head?: string;
-    /** Options */
-    options: IOption[];
-    /** Handle bubble */
-    onClickBubble?(): void;
-}
+import { IProductTileOptions } from './types';
+import { productTileOptionsProps } from './propTypes';
 
 const cn = cnCreate('mfui-product-tile-options');
-class ProductTileOptions extends React.Component<IProductTileOptionsProps> {
-    static propTypes = {
-        head: PropTypes.string,
-        options: PropTypes.arrayOf(PropTypes.shape({
-            title: PropTypes.string,
-            caption: PropTypes.stirng,
-            value: PropTypes.string,
-            unit: PropTypes.string,
-            footnote: PropTypes.string,
-            svgIcon: PropTypes.element,
-        })),
-        onClickBubble: PropTypes.func,
-    };
+class ProductTileOptions extends React.Component<IProductTileOptions> {
+    static propTypes = productTileOptionsProps;
 
     renderFootnote(title: string, footnote: string): JSX.Element {
         const { onClickBubble } = this.props;

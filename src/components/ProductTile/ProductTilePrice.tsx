@@ -1,31 +1,13 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { cnCreate } from '../../utils/cn';
 import './style/ProductTilePrice.less';
 import AnimationValue from './ProductTileValue';
-
-interface IProductTilePriceProps {
-    /** title */
-    title?: string;
-    /** value */
-    value: string;
-    /** unitExtra */
-    unitExtra: string;
-    /** unitValue */
-    unitValue: string;
-    /** discount */
-    discount?: string;
-}
+import { IPayment } from './types';
+import { productTilePriceProps } from './propTypes';
 
 const cn = cnCreate('mfui-product-tile-price');
-class ProductTilePrice extends React.Component<IProductTilePriceProps> {
-    static propTypes = {
-        title: PropTypes.string,
-        value: PropTypes.string.isRequired,
-        unitExtra: PropTypes.string,
-        unitValue: PropTypes.string,
-        discount: PropTypes.string,
-    };
+class ProductTilePrice extends React.Component<IPayment> {
+    static propTypes = productTilePriceProps;
 
     render() {
         const { title, value, unitExtra, unitValue, discount } = this.props;

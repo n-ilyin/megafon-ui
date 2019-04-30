@@ -146,13 +146,23 @@ exports[`<ProductTile /> it renders ProductTile 1`] = `
     />
   </div>
   <ProductTileBuy
-    buyButtonText="sdfsdf"
-    buyLink="&options=null"
-    connectButtonText="sdfsdf"
+    buyButton={
+      Object {
+        "buttonPassiveColor": "green",
+        "buyButtonText": "sdfsdf",
+        "buyLink": "&options=null",
+        "showBuyButton": true,
+      }
+    }
+    connectButton={
+      Object {
+        "connectButtonText": "sdfsdf",
+        "connectLink": undefined,
+        "showConnectButton": true,
+      }
+    }
     onClickBuy={[Function]}
     onClickConnect={[Function]}
-    showBuyButton={true}
-    showConnectButton={true}
   />
 </div>
 `;

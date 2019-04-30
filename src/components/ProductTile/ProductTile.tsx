@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { cnCreate } from '../../utils/cn';
 import './style/ProductTile.less';
 import TextLink from '../TextLink/TextLink';
@@ -9,230 +8,20 @@ import Static from './ProductTileStatic';
 import Dynamic from './ProductTileDynamic';
 import Price from './ProductTilePrice';
 import Options from './ProductTileOptions';
-import Buy, { IProductTileBuyProps } from './ProductTileBuy';
-
-export interface IOption {
-    title: string;
-    caption?: string;
-    value?: string;
-    unit?: string;
-    footnote?: string;
-    svgIcon?: JSX.Element;
-}
-
-export interface IPayment {
-    title?: string;
-    value: string;
-    unitExtra: string;
-    unitValue: string;
-    discount?: string;
-}
-
-export interface IServicePack {
-    buyLink: string;
-    shopTag: string;
-    calls: {
-        value: number;
-        unit: string;
-    };
-    traffic: {
-        value: number;
-        unit: string;
-    };
-    options: IOption[];
-    payment: IServicePackPayment;
-}
-
-export interface IServicePackPayment {
-    value: string;
-    discount?: string;
-}
-
-export interface IPack {
-    value: number;
-    unit: string;
-    title: string;
-    isDelim: boolean;
-}
-
-export interface ICashback {
-    title: string;
-    value: number;
-    unit: string;
-}
-
-export interface IFirstParam {
-    items: IOption[];
-}
-
-export interface ISwitcher {
-    calls: string[];
-    traffic: string[];
-}
-
-export interface IProductTileProps {
-    /** Class name */
-    className?: string;
-    /** Tile */
-    title: string;
-    /** Top badge title */
-    topBadgeTitle?: string;
-    /** Second params head */
-    secondParamsHead?: string;
-    /** Shop tag */
-    shopTag?: string;
-    /** Start calls index */
-    startCallsIndex?: number;
-    /** Start traffic index */
-    startTrafficIndex?: number;
-
-    /** More link */
-    link?: string;
-    /** More link text */
-    moreLinkText?: string;
-    /** Show more link */
-    showMoreLink?: boolean;
-
-    /** Buy link */
-    buyLink?: string;
-    /** Use pack buy link */
-    usePackBuyLink?: boolean;
-    /** Buy button text */
-    buyButtonText?: string;
-    /** Show buy button */
-    showBuyButton?: boolean;
-    /** button border */
-    buttonBorder?: IProductTileBuyProps['buttonBorder'];
-    /** button font color */
-    buttonFontColor?: IProductTileBuyProps['buttonFontColor'];
-    /** button background color */
-    buttonPassiveColor?: IProductTileBuyProps['buttonPassiveColor'];
-
-    /** Connect link */
-    connectLink?: string;
-    /** Connect button text */
-    connectButtonText?: string;
-    /** Show connect button */
-    showConnectButton?: boolean;
-
-    /** Payment */
-    payment: IPayment;
-    /** Packs */
-    packs?: IPack[];
-    /** Second params */
-    secondParams: IOption[];
-    /** Cashback */
-    cashback: ICashback;
-    /** First params */
-    firstParams: IFirstParam;
-    /** Service packs */
-    servicePacks?: Array<Partial<IServicePack>>;
-    /** Info - object type - return with onClickConnect, onClickBuy */
-    info: {};
-    /** Connect handler */
-    onClickConnect?(info: {}, e: React.SyntheticEvent<EventTarget>): void;
-    /** Buy handler */
-    onClickBuy?(info: {}, e: React.SyntheticEvent<EventTarget>): void;
-    /** More handler */
-    onClickMore?(info: {}, e: React.SyntheticEvent<EventTarget>): void;
-    /** Bubble handler */
-    onClickBubble?(info: {}): void;
-}
-
-interface IProductTileState {
-    switcher: ISwitcher;
-    currentPack: Partial<IServicePack>;
-    callsValue: number;
-    trafficValue: number;
-    price: string;
-    discount: string;
-    options: IOption[];
-    buyLink: string;
-}
+import Buy from './ProductTileBuy';
+import { IProductTile, IProductTileState, IServicePack } from './types';
+import { productTileProps } from './propTypes';
 
 const cn = cnCreate('mfui-product-tile');
-class ProductTile extends React.Component<IProductTileProps, IProductTileState> {
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        topBadgeTitle: PropTypes.string,
-        secondParamsHead: PropTypes.string,
-        shopTag: PropTypes.string,
-        startCallsIndex: PropTypes.number,
-        startTrafficIndex: PropTypes.number,
-        link: PropTypes.string,
-        moreLinkText: PropTypes.string,
-        showMoreLink: PropTypes.bool,
-        buyLink: PropTypes.string,
-        usePackBuyLink: PropTypes.bool,
-        buyButtonText: PropTypes.string,
-        buttonBorder: Buy.propTypes.buttonBorder,
-        buttonFontColor: Buy.propTypes.buttonFontColor,
-        buttonPassiveColor: Buy.propTypes.buttonPassiveColor,
-        showBuyButton: PropTypes.bool,
-        connectLink: PropTypes.string,
-        connectButtonText: PropTypes.string,
-        showConnectButton: PropTypes.bool,
-        payment: PropTypes.shape({
-            title: PropTypes.string,
-            value: PropTypes.string.isRequired,
-            unitExtra: PropTypes.string,
-            unitValue: PropTypes.string,
-            discount: PropTypes.string,
-        }).isRequired,
-        packs: PropTypes.arrayOf(PropTypes.shape({
-            value: PropTypes.number,
-            unit: PropTypes.string,
-        })),
-        secondParams: PropTypes.arrayOf(PropTypes.shape({
-            title: PropTypes.string,
-            footnote: PropTypes.string,
-            value: PropTypes.string,
-            unit: PropTypes.string,
-            svgIcon: PropTypes.element,
-        })).isRequired,
-        cashback: PropTypes.shape({
-            title: PropTypes.string,
-            value: PropTypes.number,
-            unit: PropTypes.string,
-        }).isRequired,
-        firstParams: PropTypes.shape({
-            items: PropTypes.arrayOf(PropTypes.shape({
-                title: PropTypes.string,
-                caption: PropTypes.string,
-                svgIcon: PropTypes.element,
-            })),
-        }).isRequired,
-        servicePacks: PropTypes.arrayOf(PropTypes.shape({
-            buyLink: PropTypes.string,
-            calls: PropTypes.shape({
-                value: PropTypes.number,
-                unit: PropTypes.string,
-            }),
-            traffic: PropTypes.shape({
-                value: PropTypes.number,
-                unit: PropTypes.string,
-            }),
-            options: PropTypes.arrayOf(PropTypes.shape({
-                title: PropTypes.string,
-                caption: PropTypes.stirng,
-                value: PropTypes.string,
-                unit: PropTypes.string,
-                footnote: PropTypes.string,
-                svgIcon: PropTypes.element,
-            })),
-            payment: PropTypes.shape({
-                value: PropTypes.string.isRequired,
-                discount: PropTypes.string,
-            }),
-        })),
-        info: PropTypes.object,
-        onClickConnect: PropTypes.func,
-        onClickBuy: PropTypes.func,
-        onClickMore: PropTypes.func,
-        onClickBubble: PropTypes.func,
-    };
+class ProductTile extends React.Component<IProductTile, IProductTileState> {
+    static propTypes = productTileProps;
 
-    static defaultProps: Partial<IProductTileProps> = {
+    static defaultProps: Partial<IProductTile> = {
+        buyButtonText: 'Купить',
+        buttonPassiveColor: 'green',
+        showBuyButton: true,
+        connectButtonText: 'Перейти на тариф',
+        showConnectButton: true,
         moreLinkText: 'Подробнее',
         showMoreLink: true,
         servicePacks: [],
@@ -242,7 +31,7 @@ class ProductTile extends React.Component<IProductTileProps, IProductTileState> 
         usePackBuyLink: true,
     };
 
-    constructor(props: IProductTileProps) {
+    constructor(props: IProductTile) {
         super(props);
 
         const switcher = this.getSwitcherValues();
@@ -467,14 +256,27 @@ class ProductTile extends React.Component<IProductTileProps, IProductTileState> 
             secondParamsHead,
             showConnectButton,
             showBuyButton,
-            buttonBorder,
-            buttonFontColor,
             buttonPassiveColor,
             connectLink,
-            payment: { title, unitExtra, unitValue },
+            payment: {
+                title: priceTitle,
+                unitExtra: priceUnitExtra,
+                unitValue: priceUnitValue,
+            },
         } = this.props;
         const { price, discount, options, buyLink } = this.state;
         const isServicePacks = !!servicePacks!.length;
+        const buyButton = {
+            buyLink,
+            buyButtonText,
+            buttonPassiveColor,
+            showBuyButton,
+        };
+        const connectButton = {
+            connectLink,
+            connectButtonText,
+            showConnectButton,
+        };
 
         return (
             <div className={cn('', { constructor: isServicePacks }, className)}>
@@ -484,11 +286,11 @@ class ProductTile extends React.Component<IProductTileProps, IProductTileState> 
                     {this.renderLink()}
                     <Cashback {...cashback} />
                     <Price
-                        title={title}
+                        title={priceTitle}
                         value={price}
                         discount={discount}
-                        unitExtra={unitExtra}
-                        unitValue={unitValue}
+                        unitExtra={priceUnitExtra}
+                        unitValue={priceUnitValue}
                     />
                     <div className={cn('constructor')}>
                         {isServicePacks ? this.renderDynamic() : this.renderStatic()}
@@ -497,15 +299,8 @@ class ProductTile extends React.Component<IProductTileProps, IProductTileState> 
                     <Options options={options} head={secondParamsHead} onClickBubble={this.handleClickBubble}/>
                 </div>
                 <Buy
-                    buyLink={buyLink}
-                    connectLink={connectLink}
-                    buyButtonText={buyButtonText}
-                    connectButtonText={connectButtonText}
-                    showBuyButton={showBuyButton}
-                    showConnectButton={showConnectButton}
-                    buttonBorder={buttonBorder}
-                    buttonFontColor={buttonFontColor}
-                    buttonPassiveColor={buttonPassiveColor}
+                    buyButton={buyButton}
+                    connectButton={connectButton}
                     onClickBuy={this.handleClickBuy}
                     onClickConnect={this.handleClickConnect}
                 />

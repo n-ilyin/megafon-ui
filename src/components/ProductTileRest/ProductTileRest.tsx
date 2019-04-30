@@ -4,7 +4,7 @@ import { cnCreate } from '../../utils/cn';
 import './ProductTileRest.less';
 import Header from '../Header/Header';
 import TextLink from '../TextLink/TextLink';
-import Button, { IButtonProps } from '../Button/Button';
+import Button from '../Button/Button';
 import DropdownSocialList from '../DropdownSocialList/DropdownSocialList';
 
 interface IProductTileRestProps {
@@ -19,12 +19,8 @@ interface IProductTileRestProps {
     buyLink: string;
     buyButtonText: string;
     showBuyButton: boolean;
-    /** button border */
-    buttonBorder?: IButtonProps['border'];
-    /** button font color */
-    buttonFontColor?: IButtonProps['fontColor'];
     /** button background color */
-    buttonPassiveColor?: IButtonProps['passiveColor'];
+    buttonPassiveColor?: 'green' | 'transparent-green';
 
     connectLink: string;
     connectButtonText: string;
@@ -55,8 +51,6 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
         connectLink: PropTypes.string,
         connectButtonText: PropTypes.string,
         showConnectButton: PropTypes.bool,
-        buttonBorder: Button.propTypes.border,
-        buttonFontColor: Button.propTypes.fontColor,
         buttonPassiveColor: Button.propTypes.passiveColor,
         payment: PropTypes.shape({
             title: PropTypes.string,
@@ -214,8 +208,6 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
             buyLink,
             showBuyButton,
             buyButtonText,
-            buttonBorder,
-            buttonFontColor,
             buttonPassiveColor,
         } = this.props;
 
@@ -243,8 +235,6 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
                         <Button
                             className={cn('buy-button', { 'additional-margin': !showConnectButton })}
                             passiveColor={buttonPassiveColor}
-                            border={buttonBorder}
-                            fontColor={buttonFontColor}
                             hoverColor="green"
                             sizeAll="medium"
                             href={buyLink}

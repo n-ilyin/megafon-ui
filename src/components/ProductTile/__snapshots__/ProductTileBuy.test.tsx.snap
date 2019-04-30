@@ -3,29 +3,5 @@
 exports[`<ProductTileBuy /> it renders ProductTileBuy 1`] = `
 <div
   className="mfui-product-tile-buy sdfsdf"
->
-  <Button
-    className="mfui-product-tile-buy__button"
-    disabledColor="gray"
-    downColor="dark"
-    hoverColor="green"
-    padding={true}
-    passiveColor="green"
-    showSpinner={false}
-    sizeAll="medium"
-    type="button"
-    width="auto"
-  >
-    Купить
-  </Button>
-  <TextLink
-    className="mfui-product-tile-buy__detail-link"
-    color="blue"
-    target="_blank"
-    underlineStyle="solid"
-    underlineVisibility="hover"
-  >
-    Перейти на тариф
-  </TextLink>
-</div>
+/>
 `;

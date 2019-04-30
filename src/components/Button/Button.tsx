@@ -4,7 +4,7 @@ import { cnCreate } from '../../utils/cn';
 import './Button.less';
 import Spinner from 'docIcons/spinner.svg';
 
-export interface IButtonProps {
+interface IButtonProps {
     /** Special view */
     customView?: 'two-lines';
     /** Link */
@@ -27,10 +27,6 @@ export interface IButtonProps {
     passiveColor?: 'green' | 'purple' | 'transparent' | 'transparent-green' | 'white';
     /** Hover color */
     hoverColor?: 'green' | 'purple' | 'transparent';
-    /** Border color */
-    border?: 'green' | 'transparent';
-    /** Font color */
-    fontColor?: 'white' | 'green';
     /** Click/press color */
     downColor?: 'dark' | 'transparent';
     /** Disabled color */
@@ -78,14 +74,6 @@ class Button extends React.Component<IButtonProps, {}> {
             'green',
             'purple',
             'transparent',
-        ]),
-        border: PropTypes.oneOf([
-            'green',
-            'transparent',
-        ]),
-        fontColor: PropTypes.oneOf([
-            'green',
-            'white',
         ]),
         downColor: PropTypes.oneOf([
             'dark',
@@ -141,8 +129,8 @@ class Button extends React.Component<IButtonProps, {}> {
     render() {
         const {
             sizeAll, sizeWide, sizeDesktop, sizeTablet, sizeMobile,
-            customView, passiveColor, hoverColor, downColor, border, fontColor,
-            disabledColor, padding, width, margin, showSpinner, className, href, type,
+            customView, passiveColor, hoverColor, downColor, disabledColor,
+            padding, width, margin, showSpinner, className, href, type,
             onClick, disabled, target, children,
         } = this.props;
         const ElementType = this.props.href ? 'a' : 'button';
@@ -160,8 +148,6 @@ class Button extends React.Component<IButtonProps, {}> {
                     'hover-color': !customView && hoverColor,
                     'down-color': !customView && downColor,
                     'disabled-color': !customView && disabledColor,
-                    'font-color': !customView && fontColor,
-                    'border': !customView && border,
                     padding,
                     width,
                     margin,

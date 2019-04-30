@@ -1,24 +1,13 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { cnCreate } from '../../utils/cn';
 import './style/ProductTileStatic.less';
-import { IPack } from './ProductTile';
-
-interface IProductTileStaticProps {
-    /** Packs */
-    packs: Array<Partial<IPack>>;
-}
+import { IPack } from './types';
+import { IProductTileStatic } from './types';
+import { productTileStaticProps } from './propTypes';
 
 const cn = cnCreate('mfui-product-tile-static');
-class ProductTileStatic extends React.Component<IProductTileStaticProps> {
-    static propTypes = {
-        packs: PropTypes.arrayOf(PropTypes.shape({
-            value: PropTypes.number,
-            unit: PropTypes.string,
-            title: PropTypes.string,
-            isDelim: PropTypes.bool,
-        })),
-    };
+class ProductTileStatic extends React.Component<IProductTileStatic> {
+    static propTypes = productTileStaticProps;
 
     render() {
         const { packs } = this.props;
