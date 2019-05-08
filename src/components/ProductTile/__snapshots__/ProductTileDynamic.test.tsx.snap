@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProductTileDynamic /> it renders ProductTileDynamic 1`] = `
+exports[`<ProductTileDynamic /> renders ProductTileDynamic 1`] = `
 <div
   className="mfui-product-tile-dynamic"
 >
@@ -9,7 +9,7 @@ exports[`<ProductTileDynamic /> it renders ProductTileDynamic 1`] = `
   >
     <ProductTileValue
       hAlign="center"
-      value="23423 unit"
+      value="100 минут"
     />
   </div>
   <ProductSwitcher
@@ -17,17 +17,17 @@ exports[`<ProductTileDynamic /> it renders ProductTileDynamic 1`] = `
     items={
       Array [
         Object {
-          "title": "344",
-          "value": "344",
+          "title": "1",
+          "value": "1",
         },
         Object {
-          "title": "2323",
-          "value": "2323",
+          "title": "2",
+          "value": "2",
         },
       ]
     }
     onChange={[MockFunction]}
-    startIndex={0}
+    startIndex={1}
     theme="tariff-showcase"
   />
   <ProductSwitcher
@@ -39,13 +39,13 @@ exports[`<ProductTileDynamic /> it renders ProductTileDynamic 1`] = `
           "value": "3",
         },
         Object {
-          "title": "2",
-          "value": "2",
+          "title": "4",
+          "value": "4",
         },
       ]
     }
     onChange={[MockFunction]}
-    startIndex={0}
+    startIndex={1}
     theme="tariff-showcase"
   />
   <div
@@ -53,7 +53,7 @@ exports[`<ProductTileDynamic /> it renders ProductTileDynamic 1`] = `
   >
     <ProductTileValue
       hAlign="center"
-      value="234234 unit"
+      value="10 ГБ"
     />
   </div>
 </div>

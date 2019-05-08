@@ -1,12 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProductTile /> it renders ProductTile 1`] = `
+exports[`<ProductTile /> render renders ProductTile 1`] = `
 <div
-  className="mfui-product-tile mfui-product-tile_constructor"
+  className="mfui-product-tile"
 >
-  <ProductTileHint
-    title="sdfsdf"
-  />
   <div
     className="mfui-product-tile__content"
   >
@@ -16,13 +13,13 @@ exports[`<ProductTile /> it renders ProductTile 1`] = `
       <TextLink
         className="mfui-product-tile__title-link"
         color="black"
-        href="/tariffs/vklyuchaysya/smotri.html"
+        href="/tariffs/all/vybiray.html"
         onClick={[Function]}
         target="_blank"
         underlineStyle="none"
         underlineVisibility="hover"
       >
-        Включайся! Смотри
+        Включайся! Выбирай
       </TextLink>
     </h2>
     <div
@@ -31,7 +28,7 @@ exports[`<ProductTile /> it renders ProductTile 1`] = `
       <TextLink
         className="mfui-product-tile__detail-link"
         color="blue"
-        href="/tariffs/vklyuchaysya/smotri.html"
+        href="/tariffs/all/vybiray.html"
         onClick={[Function]}
         target="_blank"
         underlineStyle="solid"
@@ -46,8 +43,265 @@ exports[`<ProductTile /> it renders ProductTile 1`] = `
       value={20}
     />
     <ProductTilePrice
-      discount="0"
-      unitExtra="за 30 дней"
+      discount="100"
+      title="При покупке новой SIM–карты"
+      unitExtra="за 30 дней"
+      unitValue="₽"
+      value="3000"
+    />
+    <div
+      className="mfui-product-tile__constructor"
+    >
+      <ProductTileStatic
+        packs={
+          Array [
+            Object {
+              "isDelim": false,
+              "title": "Звонки на все номера России",
+              "unit": "ГБ",
+              "value": 10,
+            },
+            Object {
+              "isDelim": true,
+              "title": "Безлимитный интернет",
+              "unit": "",
+              "value": 0,
+            },
+          ]
+        }
+      />
+      <ProductTileOptions
+        options={
+          Array [
+            Object {
+              "caption": "Пакеты кино и сериалов",
+              "svgIcon": <test-file-stub />,
+              "title": "МегаФон ТВ",
+            },
+          ]
+        }
+      />
+    </div>
+    <ProductTileOptions
+      className="mfui-product-tile__second-params"
+      head="Дополнительные возможности"
+      onClickBubble={[Function]}
+      options={
+        Array [
+          Object {
+            "footnote": "Участвуйте в программе",
+            "svgIcon": <test-file-stub />,
+            "title": "Кэшбэк 20%",
+            "unit": "",
+            "value": "",
+          },
+          Object {
+            "footnote": "",
+            "svgIcon": <test-file-stub />,
+            "title": "Безлимитные SMS",
+            "unit": "₽ за 30 дней",
+            "value": "100",
+          },
+        ]
+      }
+    />
+  </div>
+  <ProductTileBuy
+    buyButton={
+      Object {
+        "buttonPassiveColor": "green",
+        "buyButtonText": "Купить",
+        "buyLink": "/zakaz/?tariff=choose",
+        "showBuyButton": true,
+      }
+    }
+    connectButton={
+      Object {
+        "connectButtonText": "Подключить",
+        "connectLink": "/tariffs/all/vybiray.html",
+        "showConnectButton": true,
+      }
+    }
+    onClickBuy={[Function]}
+    onClickConnect={[Function]}
+  />
+</div>
+`;
+
+exports[`<ProductTile /> render renders ProductTile with moreLink 1`] = `
+<div
+  className="mfui-product-tile"
+>
+  <div
+    className="mfui-product-tile__content"
+  >
+    <h2
+      className="mfui-product-tile__title"
+    >
+      <TextLink
+        className="mfui-product-tile__title-link"
+        color="black"
+        href="/tariffs/all/vybiray.html"
+        onClick={[Function]}
+        target="_blank"
+        underlineStyle="none"
+        underlineVisibility="hover"
+      >
+        Включайся! Выбирай
+      </TextLink>
+    </h2>
+    <div
+      className="mfui-product-tile__link-wrapper"
+    >
+      <TextLink
+        className="mfui-product-tile__detail-link"
+        color="blue"
+        href="/tariffs/all/vybiray.html"
+        onClick={[Function]}
+        target="_blank"
+        underlineStyle="solid"
+        underlineVisibility="hover"
+      >
+        Подробнее
+      </TextLink>
+    </div>
+    <ProductTileCashback
+      title="Кэшбэк"
+      unit="%"
+      value={20}
+    />
+    <ProductTilePrice
+      discount="100"
+      title="При покупке новой SIM–карты"
+      unitExtra="за 30 дней"
+      unitValue="₽"
+      value="3000"
+    />
+    <div
+      className="mfui-product-tile__constructor"
+    >
+      <ProductTileStatic
+        packs={
+          Array [
+            Object {
+              "isDelim": false,
+              "title": "Звонки на все номера России",
+              "unit": "ГБ",
+              "value": 10,
+            },
+            Object {
+              "isDelim": true,
+              "title": "Безлимитный интернет",
+              "unit": "",
+              "value": 0,
+            },
+          ]
+        }
+      />
+      <ProductTileOptions
+        options={
+          Array [
+            Object {
+              "caption": "Пакеты кино и сериалов",
+              "svgIcon": <test-file-stub />,
+              "title": "МегаФон ТВ",
+            },
+          ]
+        }
+      />
+    </div>
+    <ProductTileOptions
+      className="mfui-product-tile__second-params"
+      head="Дополнительные возможности"
+      onClickBubble={[Function]}
+      options={
+        Array [
+          Object {
+            "footnote": "Участвуйте в программе",
+            "svgIcon": <test-file-stub />,
+            "title": "Кэшбэк 20%",
+            "unit": "",
+            "value": "",
+          },
+          Object {
+            "footnote": "",
+            "svgIcon": <test-file-stub />,
+            "title": "Безлимитные SMS",
+            "unit": "₽ за 30 дней",
+            "value": "100",
+          },
+        ]
+      }
+    />
+  </div>
+  <ProductTileBuy
+    buyButton={
+      Object {
+        "buttonPassiveColor": "green",
+        "buyButtonText": "Купить",
+        "buyLink": "/zakaz/?tariff=choose",
+        "showBuyButton": true,
+      }
+    }
+    connectButton={
+      Object {
+        "connectButtonText": "Подключить",
+        "connectLink": "/tariffs/all/vybiray.html",
+        "showConnectButton": true,
+      }
+    }
+    onClickBuy={[Function]}
+    onClickConnect={[Function]}
+  />
+</div>
+`;
+
+exports[`<ProductTile /> render renders ProductTile with servicePacks 1`] = `
+<div
+  className="mfui-product-tile mfui-product-tile_constructor"
+>
+  <div
+    className="mfui-product-tile__content"
+  >
+    <h2
+      className="mfui-product-tile__title"
+    >
+      <TextLink
+        className="mfui-product-tile__title-link"
+        color="black"
+        href="/tariffs/all/vybiray.html"
+        onClick={[Function]}
+        target="_blank"
+        underlineStyle="none"
+        underlineVisibility="hover"
+      >
+        Включайся! Выбирай
+      </TextLink>
+    </h2>
+    <div
+      className="mfui-product-tile__link-wrapper"
+    >
+      <TextLink
+        className="mfui-product-tile__detail-link"
+        color="blue"
+        href="/tariffs/all/vybiray.html#choose_11"
+        onClick={[Function]}
+        target="_blank"
+        underlineStyle="solid"
+        underlineVisibility="hover"
+      >
+        Подробнее
+      </TextLink>
+    </div>
+    <ProductTileCashback
+      title="Кэшбэк"
+      unit="%"
+      value={20}
+    />
+    <ProductTilePrice
+      discount="100"
+      title="При покупке новой SIM–карты"
+      unitExtra="за 30 дней"
       unitValue="₽"
       value="450"
     />
@@ -57,33 +311,32 @@ exports[`<ProductTile /> it renders ProductTile 1`] = `
       <ProductTileDynamic
         currentPack={
           Object {
-            "buyLink": "&options=null",
+            "buyLink": "/zakaz/?tariff=choose_11",
             "calls": Object {
               "unit": "минут",
               "value": 300,
             },
             "options": Array [
               Object {
-                "footnote": "",
-                "svgIcon": <test-file-stub />,
-                "title": "Безлимитные SMS",
-                "unit": "₽ за 30 дней",
-                "value": "55",
-              },
-              Object {
-                "footnote": "Участвуйте в программе и тратьте кэшбэк ",
+                "footnote": "Участвуйте в программе",
                 "svgIcon": <test-file-stub />,
                 "title": "Кэшбэк 20%",
                 "unit": "",
-                "value": "0",
+                "value": "",
+              },
+              Object {
+                "footnote": "Подключите в разделе «Услуги и опции»",
+                "svgIcon": <test-file-stub />,
+                "title": "Безлимитные SMS",
+                "unit": "₽ за 30 дней",
+                "value": "55",
               },
             ],
             "payment": Object {
-              "discount": "0",
-              "unitExtra": "за 30 дней",
-              "unitValue": "₽",
+              "discount": "",
               "value": "450",
             },
+            "shopTag": "choose_11",
             "traffic": Object {
               "unit": "ГБ",
               "value": 6,
@@ -109,12 +362,7 @@ exports[`<ProductTile /> it renders ProductTile 1`] = `
         options={
           Array [
             Object {
-              "caption": "Привилегии обслуживания и другое",
-              "svgIcon": <test-file-stub />,
-              "title": "VIP-тариф",
-            },
-            Object {
-              "caption": "Безлимитный трафик и пакеты кино, сериалов и ТВ-каналов на любой вкус",
+              "caption": "Пакеты кино и сериалов",
               "svgIcon": <test-file-stub />,
               "title": "МегаФон ТВ",
             },
@@ -123,23 +371,24 @@ exports[`<ProductTile /> it renders ProductTile 1`] = `
       />
     </div>
     <ProductTileOptions
-      head="sdfsdf"
+      className="mfui-product-tile__second-params"
+      head="Дополнительные возможности"
       onClickBubble={[Function]}
       options={
         Array [
           Object {
-            "footnote": "",
-            "svgIcon": <test-file-stub />,
-            "title": "Безлимитные SMS",
-            "unit": "₽ за 30 дней",
-            "value": "55",
-          },
-          Object {
-            "footnote": "Участвуйте в программе и тратьте кэшбэк ",
+            "footnote": "Участвуйте в программе",
             "svgIcon": <test-file-stub />,
             "title": "Кэшбэк 20%",
             "unit": "",
-            "value": "0",
+            "value": "",
+          },
+          Object {
+            "footnote": "Подключите в разделе «Услуги и опции»",
+            "svgIcon": <test-file-stub />,
+            "title": "Безлимитные SMS",
+            "unit": "₽ за 30 дней",
+            "value": "55",
           },
         ]
       }
@@ -149,15 +398,178 @@ exports[`<ProductTile /> it renders ProductTile 1`] = `
     buyButton={
       Object {
         "buttonPassiveColor": "green",
-        "buyButtonText": "sdfsdf",
-        "buyLink": "&options=null",
+        "buyButtonText": "Купить",
+        "buyLink": "/zakaz/?tariff=choose_11",
         "showBuyButton": true,
       }
     }
     connectButton={
       Object {
-        "connectButtonText": "sdfsdf",
-        "connectLink": undefined,
+        "connectButtonText": "Подключить",
+        "connectLink": "/tariffs/all/vybiray.html",
+        "showConnectButton": true,
+      }
+    }
+    onClickBuy={[Function]}
+    onClickConnect={[Function]}
+  />
+</div>
+`;
+
+exports[`<ProductTile /> render renders ProductTile with topBadgeTitle 1`] = `
+<div
+  className="mfui-product-tile mfui-product-tile_constructor"
+>
+  <ProductTileHint
+    title="Тариф-конструктор от 450 ₽"
+  />
+  <div
+    className="mfui-product-tile__content"
+  >
+    <h2
+      className="mfui-product-tile__title"
+    >
+      <TextLink
+        className="mfui-product-tile__title-link"
+        color="black"
+        href="/tariffs/all/vybiray.html"
+        onClick={[Function]}
+        target="_blank"
+        underlineStyle="none"
+        underlineVisibility="hover"
+      >
+        Включайся! Выбирай
+      </TextLink>
+    </h2>
+    <div
+      className="mfui-product-tile__link-wrapper"
+    >
+      <TextLink
+        className="mfui-product-tile__detail-link"
+        color="blue"
+        href="/tariffs/all/vybiray.html#choose_11"
+        onClick={[Function]}
+        target="_blank"
+        underlineStyle="solid"
+        underlineVisibility="hover"
+      >
+        Подробнее
+      </TextLink>
+    </div>
+    <ProductTileCashback
+      title="Кэшбэк"
+      unit="%"
+      value={20}
+    />
+    <ProductTilePrice
+      discount="100"
+      title="При покупке новой SIM–карты"
+      unitExtra="за 30 дней"
+      unitValue="₽"
+      value="450"
+    />
+    <div
+      className="mfui-product-tile__constructor"
+    >
+      <ProductTileDynamic
+        currentPack={
+          Object {
+            "buyLink": "/zakaz/?tariff=choose_11",
+            "calls": Object {
+              "unit": "минут",
+              "value": 300,
+            },
+            "options": Array [
+              Object {
+                "footnote": "Участвуйте в программе",
+                "svgIcon": <test-file-stub />,
+                "title": "Кэшбэк 20%",
+                "unit": "",
+                "value": "",
+              },
+              Object {
+                "footnote": "Подключите в разделе «Услуги и опции»",
+                "svgIcon": <test-file-stub />,
+                "title": "Безлимитные SMS",
+                "unit": "₽ за 30 дней",
+                "value": "55",
+              },
+            ],
+            "payment": Object {
+              "discount": "",
+              "value": "450",
+            },
+            "shopTag": "choose_11",
+            "traffic": Object {
+              "unit": "ГБ",
+              "value": 6,
+            },
+          }
+        }
+        onChangeCalls={[Function]}
+        onChangeTraffic={[Function]}
+        startCallsIndex={0}
+        startTrafficIndex={0}
+        switcher={
+          Object {
+            "calls": Array [
+              "300",
+            ],
+            "traffic": Array [
+              "6",
+            ],
+          }
+        }
+      />
+      <ProductTileOptions
+        options={
+          Array [
+            Object {
+              "caption": "Пакеты кино и сериалов",
+              "svgIcon": <test-file-stub />,
+              "title": "МегаФон ТВ",
+            },
+          ]
+        }
+      />
+    </div>
+    <ProductTileOptions
+      className="mfui-product-tile__second-params"
+      head="Дополнительные возможности"
+      onClickBubble={[Function]}
+      options={
+        Array [
+          Object {
+            "footnote": "Участвуйте в программе",
+            "svgIcon": <test-file-stub />,
+            "title": "Кэшбэк 20%",
+            "unit": "",
+            "value": "",
+          },
+          Object {
+            "footnote": "Подключите в разделе «Услуги и опции»",
+            "svgIcon": <test-file-stub />,
+            "title": "Безлимитные SMS",
+            "unit": "₽ за 30 дней",
+            "value": "55",
+          },
+        ]
+      }
+    />
+  </div>
+  <ProductTileBuy
+    buyButton={
+      Object {
+        "buttonPassiveColor": "green",
+        "buyButtonText": "Купить",
+        "buyLink": "/zakaz/?tariff=choose_11",
+        "showBuyButton": true,
+      }
+    }
+    connectButton={
+      Object {
+        "connectButtonText": "Подключить",
+        "connectLink": "/tariffs/all/vybiray.html",
         "showConnectButton": true,
       }
     }

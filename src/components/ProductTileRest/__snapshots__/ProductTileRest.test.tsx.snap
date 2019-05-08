@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductTileRest /> render renders ProductTileRest 1`] = `
+<div
+  className="mfui-product-tile-rest"
+>
+  <div
+    className="mfui-product-tile-rest__info"
+  >
+    <Header
+      as="h3"
+      className="mfui-product-tile-rest__header"
+      color="black"
+    >
+      Включайся! Выбирай
+    </Header>
+    <TextLink
+      className="mfui-product-tile-rest__detail-link mfui-product-tile-rest__detail-link_type_more"
+      color="blue"
+      href="/tariffs/all/vybiray.html"
+      onClick={[Function]}
+      target="_blank"
+      underlineStyle="solid"
+      underlineVisibility="hover"
+    >
+      Подробнее
+    </TextLink>
+    <div
+      className="mfui-product-tile-rest__price mfui-product-tile-rest__price_discount"
+    >
+      <div
+        className="mfui-product-tile-rest__discount-condition"
+      >
+        При покупке новой SIM–карты
+      </div>
+      <div
+        className="mfui-product-tile-rest__old-price-wrapper"
+      >
+        <div
+          className="mfui-product-tile-rest__old-price"
+        >
+          3000 ₽
+        </div>
+      </div>
+      <div
+        className="mfui-product-tile-rest__actual-price"
+      >
+        100 ₽ за 30 дней
+      </div>
+    </div>
+    <div
+      className="mfui-product-tile-rest__pack"
+      key="10ГБ0"
+    >
+      10 ГБ
+    </div>
+    <div
+      className="mfui-product-tile-rest__pack"
+      key="10ГБ1"
+    >
+      Безлимитный интернет
+    </div>
+    <div
+      className="mfui-product-tile-rest__messangers"
+    >
+      <div
+        className="mfui-product-tile-rest__messangers-list"
+      >
+        <DropdownSocialList
+          className="mfui-product-tile-rest__options-list"
+          icons={
+            Array [
+              Object {
+                "svgIcon": <test-file-stub />,
+                "title": "МегаФон ТВ",
+              },
+            ]
+          }
+          maxIconNumber={4}
+        />
+      </div>
+      <div
+        className="mfui-product-tile-rest__messangers-description"
+      >
+        Параметры
+        <br />
+         
+        Тариф для планшетов
+      </div>
+    </div>
+    <div
+      className="mfui-product-tile-rest__options"
+    >
+      <div
+        className="mfui-product-tile-rest__option"
+        key="Кэшбэк 20%0"
+      >
+        <div
+          className="mfui-product-tile-rest__option-title"
+        >
+          Кэшбэк 20%
+        </div>
+        <div
+          className="mfui-product-tile-rest__option-description"
+        >
+           
+        </div>
+      </div>
+      <div
+        className="mfui-product-tile-rest__option"
+        key="Безлимитные SMS1"
+      >
+        <div
+          className="mfui-product-tile-rest__option-title"
+        >
+          Безлимитные SMS
+        </div>
+        <div
+          className="mfui-product-tile-rest__option-description"
+        >
+          100 ₽ за 30 дней
+        </div>
+      </div>
+    </div>
+    <div
+      className="mfui-product-tile-rest__description"
+    >
+      description
+    </div>
+  </div>
+  <div
+    className="mfui-product-tile-rest__buy"
+  >
+    <Button
+      className="mfui-product-tile-rest__buy-button"
+      disabledColor="gray"
+      downColor="dark"
+      hoverColor="green"
+      href="/zakaz/?tariff=choose"
+      onClick={[Function]}
+      padding={true}
+      passiveColor="green"
+      showSpinner={false}
+      sizeAll="medium"
+      type="button"
+      width="auto"
+    >
+      Купить
+    </Button>
+    <TextLink
+      className="mfui-product-tile-rest__detail-link mfui-product-tile-rest__detail-link_type_connect"
+      color="blue"
+      href="/tariffs/all/vybiray.html"
+      onClick={[Function]}
+      target="_blank"
+      underlineStyle="solid"
+      underlineVisibility="hover"
+    >
+      Подключить
+    </TextLink>
+  </div>
+</div>
+`;
+
+exports[`<ProductTileRest /> render renders ProductTileRest with empty props 1`] = `
+<div
+  className="mfui-product-tile-rest"
+>
+  <div
+    className="mfui-product-tile-rest__info"
+  >
+    <Header
+      as="h3"
+      className="mfui-product-tile-rest__header"
+      color="black"
+    >
+      title
+    </Header>
+    <TextLink
+      className="mfui-product-tile-rest__detail-link mfui-product-tile-rest__detail-link_type_more"
+      color="blue"
+      onClick={[Function]}
+      target="_blank"
+      underlineStyle="solid"
+      underlineVisibility="hover"
+    >
+      Подробнее
+    </TextLink>
+    <div
+      className="mfui-product-tile-rest__price"
+    >
+      <div
+        className="mfui-product-tile-rest__discount-condition"
+      >
+        title
+      </div>
+      <div
+        className="mfui-product-tile-rest__old-price-wrapper"
+      >
+        <div
+          className="mfui-product-tile-rest__old-price"
+        >
+          value unitValue
+        </div>
+      </div>
+      <div
+        className="mfui-product-tile-rest__actual-price"
+      >
+        value unitValue unitExtra
+      </div>
+    </div>
+    <div
+      className="mfui-product-tile-rest__messangers"
+    />
+  </div>
+  <div
+    className="mfui-product-tile-rest__buy"
+  >
+    <Button
+      className="mfui-product-tile-rest__buy-button"
+      disabledColor="gray"
+      downColor="dark"
+      hoverColor="green"
+      onClick={[Function]}
+      padding={true}
+      passiveColor="green"
+      showSpinner={false}
+      sizeAll="medium"
+      type="button"
+      width="auto"
+    >
+      Купить
+    </Button>
+    <TextLink
+      className="mfui-product-tile-rest__detail-link mfui-product-tile-rest__detail-link_type_connect"
+      color="blue"
+      onClick={[Function]}
+      target="_blank"
+      underlineStyle="solid"
+      underlineVisibility="hover"
+    >
+      Перейти на тариф
+    </TextLink>
+  </div>
+</div>
+`;

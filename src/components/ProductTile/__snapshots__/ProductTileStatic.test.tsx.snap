@@ -6,9 +6,22 @@ exports[`<ProductTileStatic /> it renders ProductTileStatic 1`] = `
 >
   <div
     className="mfui-product-tile-static__constructor-pack"
-    key="title2342unit"
+    key="NaNминут"
   >
-    2342 unit
+    1500 минут
+  </div>
+</div>
+`;
+
+exports[`<ProductTileStatic /> it renders ProductTileStatic with delim 1`] = `
+<div
+  className="mfui-product-tile-static"
+>
+  <div
+    className="mfui-product-tile-static__constructor-pack"
+    key="Безлимитный интернетundefinedundefined"
+  >
+    Безлимитный интернет
   </div>
 </div>
 `;

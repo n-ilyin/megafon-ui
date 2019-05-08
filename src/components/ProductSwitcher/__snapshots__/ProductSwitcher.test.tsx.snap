@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProductSwitcher /> it renders ProductSwitcher 1`] = `
+exports[`<ProductSwitcher /> renders ProductSwitcher 1`] = `
 <div
   className="mfui-product-switcher mfui-product-switcher_theme_tariff-showcase sdfsdf"
 >

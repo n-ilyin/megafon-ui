@@ -78,6 +78,7 @@ export const productTileProps = {
 };
 
 export const productTileBuyProps = {
+    className: PropTypes.string,
     buyButton: PropTypes.shape({
         buyLink: PropTypes.string,
         buyButtonText: PropTypes.string,
@@ -115,6 +116,7 @@ export const productTileHintProps = {
 };
 
 export const productTileOptionsProps = {
+    className: PropTypes.string,
     head: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.shape(option)),
     onClickBubble: PropTypes.func,

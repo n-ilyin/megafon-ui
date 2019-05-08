@@ -75,9 +75,9 @@ export interface IProductTileBuy {
     buyButton?: Exclude<IButtonBuy, 'usePackBuyLink'>;
     /** Connect link */
     connectButton?: ILinkConnect;
-    /** Connect hander */
+    /** Connect handler */
     onClickConnect?(e: React.SyntheticEvent<EventTarget>): void;
-    /** Buy hander */
+    /** Buy handler */
     onClickBuy?(e: React.SyntheticEvent<EventTarget>): void;
 }
 
@@ -102,6 +102,8 @@ export interface IProductTileHint {
 }
 
 export interface IProductTileOptions {
+    /** Custom class name */
+    className?: string;
     /** Has head */
     head?: string;
     /** Options */

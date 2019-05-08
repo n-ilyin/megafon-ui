@@ -25,6 +25,7 @@
     "prepublishOnly": "npm install && npm run build",
     "test": "npm run test:unit",
     "test:unit": "jest",
+    "testw": "jest --watch",
     "testu": "jest --updateSnapshot"
   },
   "publishConfig": {

@@ -8,38 +8,82 @@ import Button from '../Button/Button';
 import DropdownSocialList from '../DropdownSocialList/DropdownSocialList';
 
 interface IProductTileRestProps {
+    /** Tile title */
     title: string;
-    description: string;
-    shopTag: string;
-
-    link: string;
-    moreLinkText: string;
-    showMoreLink: boolean;
-
-    buyLink: string;
-    buyButtonText: string;
-    showBuyButton: boolean;
-    /** button background color */
+    /** Tile description */
+    description?: string;
+    /** Shop tag */
+    shopTag?: string;
+    /** Link more - href */
+    link?: string;
+    /** Link more - text */
+    moreLinkText?: string;
+    /** Link more - show/hide */
+    showMoreLink?: boolean;
+    /** Button buy - href */
+    buyLink?: string;
+    /** Button buy - text */
+    buyButtonText?: string;
+    /** Button buy - show/hide */
+    showBuyButton?: boolean;
+    /** Button buy - passive color */
     buttonPassiveColor?: 'green' | 'transparent-green';
-
-    connectLink: string;
-    connectButtonText: string;
-    showConnectButton: boolean;
-
-    payment: any;
-    packs: any;
-    firstParams: any;
-    secondParams: any;
-    info: any;
-    onClickConnect: any;
-    onClickBuy: any;
-    onClickMore: any;
+    /** Link connect - href */
+    connectLink?: string;
+    /** Link connect - text */
+    connectButtonText?: string;
+    /** Link connect - show/hide */
+    showConnectButton?: boolean;
+    /** Payment */
+    payment: {
+        title: string;
+        value: string;
+        unitExtra: string;
+        unitValue: string;
+        discount?: string;
+    };
+    /** Packs */
+    packs: Array<{
+        value: number;
+        unit: string;
+        title: string;
+        isDelim: boolean;
+    }>;
+    /** First params */
+    firstParams: {
+        title?: string;
+        caption: string;
+        items: Array<{
+            title: string;
+            svgIcon: JSX.Element;
+        }>;
+    };
+    /** Second params */
+    secondParams: Array<{
+        title: string;
+        value?: string;
+        unit?: string;
+    }>;
+    /** Info - object with custom properties
+     * - return with onClickConnect, onClickBuy, onClickMore, onClickBubble
+     */
+    info: {};
+    /** Button connect handler - return object { ...info, callsValue, trafficValue } */
+    onClickConnect?(data: {}, e: React.SyntheticEvent<EventTarget>): void;
+    /** Button buy handler - return object
+     * { ...info, shopTag }
+     */
+    onClickBuy?(data: {}, e: React.SyntheticEvent<EventTarget>): void;
+    /** Link more handler - return object
+     * { ...info, shopTag }
+     */
+    onClickMore?(data: {}, e: React.SyntheticEvent<EventTarget>): void;
 }
 
 const cn = cnCreate('mfui-product-tile-rest');
 class ProductTileRest extends React.Component<IProductTileRestProps> {
     static propTypes = {
-        title: PropTypes.string,
+        title: PropTypes.string.isRequired,
         description: PropTypes.string,
         shopTag: PropTypes.string,
         link: PropTypes.string,
@@ -54,7 +98,7 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
         buttonPassiveColor: Button.propTypes.passiveColor,
         payment: PropTypes.shape({
             title: PropTypes.string,
-            value: PropTypes.string.isRequired,
+            value: PropTypes.string,
             unitExtra: PropTypes.string,
             unitValue: PropTypes.string,
             discount: PropTypes.string,
@@ -64,31 +108,32 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
             unit: PropTypes.string,
             title: PropTypes.string,
             isDelim: PropTypes.bool,
-        })),
+        })).isRequired,
         firstParams: PropTypes.shape({
             title: PropTypes.string,
             caption: PropTypes.string,
-            icons: PropTypes.arrayOf(PropTypes.shape({
+            items: PropTypes.arrayOf(PropTypes.shape({
                 title: PropTypes.string,
                 svgIcon: PropTypes.element,
             })),
-        }),
+        }).isRequired,
         secondParams: PropTypes.arrayOf(PropTypes.shape({
             title: PropTypes.string,
             value: PropTypes.string,
             unit: PropTypes.string,
-        })),
+        })).isRequired,
         info: PropTypes.object,
         onClickConnect: PropTypes.func,
         onClickBuy: PropTypes.func,
         onClickMore: PropTypes.func,
     };
 
-    static defaultProps = {
+    static defaultProps: Partial<IProductTileRestProps> = {
         moreLinkText: 'Подробнее',
         showMoreLink: true,
         buyButtonText: 'Купить',
         showBuyButton: true,
+        buttonPassiveColor: 'green',
         connectButtonText: 'Перейти на тариф',
         showConnectButton: true,
         shopTag: '',
@@ -101,10 +146,26 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
     }
 
     handleClickBuy = (e: React.SyntheticEvent<EventTarget>) => {
-        const { info, shopTag, onClickBuy, payment: { value, discount, unitValue, unitExtra } } = this.props;
-        const priceValue: string = discount || value;
+        const {
+            info,
+            shopTag,
+            onClickBuy,
+            payment: {
+                value,
+                discount,
+                unitValue,
+                unitExtra,
+            },
+        } = this.props;
+        const priceValue = discount || value;
 
-        onClickBuy && onClickBuy({ ...info, shopTag, price: priceValue, unitValue, unitExtra }, e);
+        onClickBuy && onClickBuy({
+            ...info,
+            shopTag,
+            price: priceValue,
+            unitValue,
+            unitExtra,
+        }, e);
     }
 
     handleClickMore = (e: React.SyntheticEvent<EventTarget>) => {
@@ -161,7 +222,13 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
 
     renderShowcase() {
         const {
-            payment: { title, value, unitExtra, unitValue, discount },
+            payment: {
+                title,
+                value,
+                unitExtra,
+                unitValue,
+                discount,
+            },
             packs,
         } =  this.props;
 
@@ -217,7 +284,7 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
                     <Header className={cn('header')} as="h3">{title}</Header>
                     {showMoreLink &&
                         <TextLink
-                            className={cn('detail-link')}
+                            className={cn('detail-link', { type: 'more' })}
                             href={link}
                             target="_blank"
                             onClick={this.handleClickMore}
@@ -228,7 +295,9 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
                     {this.renderShowcase()}
                     {this.renderIcons()}
                     {this.renderOptions()}
-                    {description && <div className={cn('description')}>{description}</div>}
+                    {description &&
+                        <div className={cn('description')}>{description}</div>
+                    }
                 </div>
                 <div className={cn('buy')}>
                     {showBuyButton &&
@@ -245,7 +314,7 @@ class ProductTileRest extends React.Component<IProductTileRestProps> {
                     }
                     {showConnectButton &&
                         <TextLink
-                            className={cn('detail-link')}
+                            className={cn('detail-link', { type: 'connect' })}
                             href={connectLink}
                             onClick={this.handleClickConnect}
                             target="_blank"
