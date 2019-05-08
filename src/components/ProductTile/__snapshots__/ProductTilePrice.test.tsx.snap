@@ -7,7 +7,7 @@ exports[`<ProductTilePrice /> renders ProductTilePrice 1`] = `
   <div
     className="mfui-product-tile-price__discount-condition"
   >
-    title
+    Новым абонентам 1000 ₽ на счёт
   </div>
   <span
     className="mfui-product-tile-price__old-price"
@@ -22,13 +22,13 @@ exports[`<ProductTilePrice /> renders ProductTilePrice 1`] = `
     className="mfui-product-tile-price__actual-price"
   >
     <ProductTileValue
-      value="23423 uniteValue"
+      value="1500 за 30 дней"
     />
      
     <span
       className="mfui-product-tile-price__payment-period"
     >
-      uniteExtra
+      ₽
     </span>
   </span>
 </div>
@@ -41,7 +41,7 @@ exports[`<ProductTilePrice /> renders ProductTilePrice with discount 1`] = `
   <div
     className="mfui-product-tile-price__discount-condition"
   >
-    title
+    Новым абонентам 1000 ₽ на счёт
   </div>
   <span
     className="mfui-product-tile-price__old-price"
@@ -49,20 +49,20 @@ exports[`<ProductTilePrice /> renders ProductTilePrice with discount 1`] = `
     <span
       className="mfui-product-tile-price__old-price-value"
     >
-      23423 uniteValue
+      1500 за 30 дней
     </span>
   </span>
   <span
     className="mfui-product-tile-price__actual-price"
   >
     <ProductTileValue
-      value="100 uniteValue"
+      value="1000 за 30 дней"
     />
      
     <span
       className="mfui-product-tile-price__payment-period"
     >
-      uniteExtra
+      ₽
     </span>
   </span>
 </div>

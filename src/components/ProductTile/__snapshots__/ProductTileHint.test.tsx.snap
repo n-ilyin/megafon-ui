@@ -10,7 +10,7 @@ exports[`<ProductTileHint /> it renders ProductTileHint 1`] = `
     <span
       className="mfui-product-tile-hint__description"
     >
-      sdfsdf
+      Тариф-конструктор от 450 ₽
     </span>
   </div>
   <div

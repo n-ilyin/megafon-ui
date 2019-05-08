@@ -5,18 +5,20 @@ import ProductTileDynamic from './ProductTileDynamic';
 const props = {
     currentPack: {
         calls: {
-            value: 23423,
-            unit: 'unit',
+            value: 100,
+            unit: 'минут',
         },
         traffic: {
-            value: 234234,
-            unit: 'unit',
+            value: 10,
+            unit: 'ГБ',
         },
     },
     switcher: {
-        calls: ['344', '2323'],
-        traffic: ['3', '2'],
+        calls: ['1', '2'],
+        traffic: ['3', '4'],
     },
+    startCallsIndex: 1,
+    startTrafficIndex: 1,
 };
 
 describe('<ProductTileDynamic />', () => {
@@ -28,6 +30,7 @@ describe('<ProductTileDynamic />', () => {
                 onChangeTraffic={jest.fn()}
             />
         );
+
         expect(wrapper).toMatchSnapshot();
     });
 });

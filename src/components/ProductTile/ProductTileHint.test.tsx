@@ -3,12 +3,13 @@ import { shallow } from 'enzyme';
 import ProductTileHint from './ProductTileHint';
 
 const props = {
-    title: 'sdfsdf',
+    title: 'Тариф-конструктор от 450 ₽',
 };
 
 describe('<ProductTileHint />', () => {
     it('it renders ProductTileHint', () => {
         const wrapper = shallow(<ProductTileHint {...props} />);
+
         expect(wrapper).toMatchSnapshot();
     });
 });

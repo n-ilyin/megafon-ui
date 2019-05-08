@@ -166,6 +166,10 @@ class ProductTile extends React.Component<IProductTile, IProductTileState> {
         };
     }
 
+    formHashLink(link: string, shopTag: string) {
+        return !shopTag ? link : `${link}#${shopTag}`;
+    }
+
     renderStatic() {
         const { packs } = this.props;
 
@@ -240,10 +244,6 @@ class ProductTile extends React.Component<IProductTile, IProductTileState> {
         );
     }
 
-    formHashLink(link: string, shopTag: string) {
-        return !shopTag ? link : `${link}#${shopTag}`;
-    }
-
     render() {
         const {
             servicePacks,
@@ -280,7 +280,7 @@ class ProductTile extends React.Component<IProductTile, IProductTileState> {
 
         return (
             <div className={cn('', { constructor: isServicePacks }, className)}>
-                {isServicePacks && !!topBadgeTitle && <Hint title={topBadgeTitle}/>}
+                {isServicePacks && !!topBadgeTitle && <Hint title={topBadgeTitle} />}
                 <div className={cn('content')}>
                     {this.renderTitle()}
                     {this.renderLink()}
@@ -296,7 +296,12 @@ class ProductTile extends React.Component<IProductTile, IProductTileState> {
                         {isServicePacks ? this.renderDynamic() : this.renderStatic()}
                         <Options options={firstParams.items} />
                     </div>
-                    <Options options={options} head={secondParamsHead} onClickBubble={this.handleClickBubble}/>
+                    <Options
+                        className={cn('second-params')}
+                        options={options}
+                        head={secondParamsHead}
+                        onClickBubble={this.handleClickBubble}
+                    />
                 </div>
                 <Buy
                     buyButton={buyButton}

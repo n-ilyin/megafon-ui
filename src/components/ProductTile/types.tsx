@@ -102,6 +102,8 @@ export interface IProductTileHint {
 }
 
 export interface IProductTileOptions {
+    /** Custom class name */
+    className?: string;
     /** Has head */
     head?: string;
     /** Options */

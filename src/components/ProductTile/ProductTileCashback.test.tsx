@@ -3,14 +3,21 @@ import { shallow } from 'enzyme';
 import ProductTileCashback from './ProductTileCashback';
 
 const props = {
-    title: 'title',
+    title: 'Кэшбэк',
     value: 23,
-    unit: 'unit',
+    unit: '%',
 };
 
 describe('<ProductTileCashback />', () => {
-    it('it renders ProductTileCashback', () => {
+    it('renders ProductTileCashback', () => {
         const wrapper = shallow(<ProductTileCashback {...props} />);
+
         expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should not renders without props', () => {
+        const wrapper = shallow(<ProductTileCashback />);
+
+        expect(wrapper.type()).toEqual(null);
     });
 });

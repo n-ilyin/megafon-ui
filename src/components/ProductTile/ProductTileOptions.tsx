@@ -51,10 +51,10 @@ class ProductTileOptions extends React.Component<IProductTileOptions> {
     }
 
     render() {
-        const { options, head } = this.props;
+        const { className, options, head } = this.props;
 
         return (
-            <div className={cn('')}>
+            <div className={cn('', {}, className)}>
                 {!!head && <div className={cn('head')}>{head}</div>}
                 <div className={cn('wrapper')}>
                     {options.map((option, index) => {

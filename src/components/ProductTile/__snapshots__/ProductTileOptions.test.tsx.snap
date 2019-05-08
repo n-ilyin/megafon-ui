@@ -1,20 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProductTileOptions /> it renders ProductTileOptions 1`] = `
+exports[`<ProductTileOptions /> renders ProductTileOptions 1`] = `
 <div
   className="mfui-product-tile-options"
 >
-  <div
-    className="mfui-product-tile-options__head"
-  >
-    sdfsdfsdf
-  </div>
   <div
     className="mfui-product-tile-options__wrapper"
   >
     <div
       className="mfui-product-tile-options__option"
-      key="title0"
+      key="Безлимитные SMS0"
+    >
+      <div
+        className="mfui-product-tile-options__icon"
+      >
+        <test-file-stub />
+      </div>
+      <div
+        className="mfui-product-tile-options__content"
+      >
+        <div
+          className="mfui-product-tile-options__title"
+        >
+          Безлимитные SMS
+        </div>
+        <div
+          className="mfui-product-tile-options__description"
+        >
+          55 ₽ за 30 дней
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ProductTileOptions /> renders ProductTileOptions with caption 1`] = `
+<div
+  className="mfui-product-tile-options"
+>
+  <div
+    className="mfui-product-tile-options__wrapper"
+  >
+    <div
+      className="mfui-product-tile-options__option"
+      key="МегаФон ТВ0"
+    >
+      <div
+        className="mfui-product-tile-options__icon"
+      >
+        <test-file-stub />
+      </div>
+      <div
+        className="mfui-product-tile-options__content"
+      >
+        <div
+          className="mfui-product-tile-options__title"
+        >
+          МегаФон ТВ
+        </div>
+        <div
+          className="mfui-product-tile-options__description"
+        >
+          Особый статус и привилегии
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ProductTileOptions /> renders ProductTileOptions with footnote 1`] = `
+<div
+  className="mfui-product-tile-options"
+>
+  <div
+    className="mfui-product-tile-options__wrapper"
+  >
+    <div
+      className="mfui-product-tile-options__option"
+      key="Кэшбэк 20 %0"
     >
       <div
         className="mfui-product-tile-options__icon"
@@ -24,7 +89,7 @@ exports[`<ProductTileOptions /> it renders ProductTileOptions 1`] = `
       <div
         className="mfui-product-tile-options__title"
       >
-        title
+        Кэшбэк 20 %
         <BubbleHint
           className="mfui-product-tile-options__cashback-c"
           click={true}
@@ -44,11 +109,51 @@ exports[`<ProductTileOptions /> it renders ProductTileOptions 1`] = `
             className="mfui-product-tile-options__hint-text"
             dangerouslySetInnerHTML={
               Object {
-                "__html": "footnote",
+                "__html": "Участвуйте в программе и тратьте кэшбэк",
               }
             }
           />
         </BubbleHint>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ProductTileOptions /> renders ProductTileOptions with head 1`] = `
+<div
+  className="mfui-product-tile-options"
+>
+  <div
+    className="mfui-product-tile-options__head"
+  >
+    Дополнительные возможности:
+  </div>
+  <div
+    className="mfui-product-tile-options__wrapper"
+  >
+    <div
+      className="mfui-product-tile-options__option"
+      key="Безлимитные SMS0"
+    >
+      <div
+        className="mfui-product-tile-options__icon"
+      >
+        <test-file-stub />
+      </div>
+      <div
+        className="mfui-product-tile-options__content"
+      >
+        <div
+          className="mfui-product-tile-options__title"
+        >
+          Безлимитные SMS
+        </div>
+        <div
+          className="mfui-product-tile-options__description"
+        >
+          55 ₽ за 30 дней
+        </div>
       </div>
     </div>
   </div>

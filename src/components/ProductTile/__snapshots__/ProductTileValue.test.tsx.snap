@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProductTileValue /> it renders ProductTileValue 1`] = `
+exports[`<ProductTileValue /> renders ProductTileValue 1`] = `
 <span
   className="mfui-product-tile-value mfui-product-tile-value_h-align_center"
 >
@@ -10,7 +10,41 @@ exports[`<ProductTileValue /> it renders ProductTileValue 1`] = `
   <span
     className="mfui-product-tile-value__current"
   >
-    werwer
+    700 ₽
+  </span>
+</span>
+`;
+
+exports[`<ProductTileValue /> renders ProductTileValue after animation 1`] = `
+<span
+  className="mfui-product-tile-value mfui-product-tile-value_h-align_center"
+>
+  <span
+    className="mfui-product-tile-value__prev mfui-product-tile-value__prev_hide"
+  >
+    700 ₽
+  </span>
+  <span
+    className="mfui-product-tile-value__current"
+  >
+    800 ₽
+  </span>
+</span>
+`;
+
+exports[`<ProductTileValue /> renders ProductTileValue before animation 1`] = `
+<span
+  className="mfui-product-tile-value mfui-product-tile-value_h-align_center"
+>
+  <span
+    className="mfui-product-tile-value__prev"
+  >
+    700 ₽
+  </span>
+  <span
+    className="mfui-product-tile-value__current mfui-product-tile-value__current_hide"
+  >
+    800 ₽
   </span>
 </span>
 `;
